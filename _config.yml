@@ -1,0 +1,18 @@
+---
+title: "*( code )"
+author: fitsyu
+email: 
+description: |2
+
+  Hello, there! My name fitsyu. Nice to meet you
+baseurl: ''
+url: ''
+twitter_username: fitsyu
+github_username: fitsyu
+markdown: kramdown
+theme: minima
+gems:
+- jekyll-feed
+exclude:
+- Gemfile
+- Gemfile.lock
