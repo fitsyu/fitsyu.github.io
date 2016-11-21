@@ -27,14 +27,11 @@ Gantilah angkanya menjadi **2** lalu jalankan app nya!
 
 
 atau di dalam kode 
-```
+```swift
+@IBOutlet weak var  myLabel: UILabel!
 
-
-   @IBOutlet weak var  myLabel: UILabel!
-
-  // di dalam suatu fungsi, misal di viewDidLoad()
-	
-	myLabel.numberOfLines = 2
+// di dalam suatu fungsi, misal di viewDidLoad()
+myLabel.numberOfLines = 2
 
 
 
