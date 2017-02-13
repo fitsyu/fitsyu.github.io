@@ -10,7 +10,7 @@ url: ''
 twitter_username: fitsyu
 github_username: fitsyu
 markdown: kramdown
-theme: minima
+theme: architect
 gems:
 - jekyll-feed
 exclude:
