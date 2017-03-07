@@ -1,0 +1,15 @@
+# Setup
+name:         A Life Debugger
+tagline:      mudah-mudahan bermanfaat untuk umat manusia di muka bumi ini
+baseurl:      ""
+
+github:		"https://github.com/fitsyu"
+twitter: 	""
+
+
+# Gems
+gems:
+  - jekyll-paginate
+
+#Others
+markdown: kramdown
