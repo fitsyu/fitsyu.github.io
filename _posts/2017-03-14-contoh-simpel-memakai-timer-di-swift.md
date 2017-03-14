@@ -1,6 +1,7 @@
 ---
 title: Contoh Simpel Memakai Timer di Swift
 layout: post
+comments: 'true'
 ---
 
 Ada banyak cara menggunakan Timer pada Swift. 

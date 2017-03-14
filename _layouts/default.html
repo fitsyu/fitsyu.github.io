@@ -74,9 +74,23 @@
             <a href="https://github.com/pietromenna/jekyll-architect-theme">jekyll-architect-theme</a>
           </p>
 
+        
+        <p>
+        
+            {{ site.disqus.shortname }}
+        
+        </p>
+
         </aside>
       </div>
     </div>
+
+
+
+    {% if site.disqus.shortname %}
+        {% include disqus.html %}
+    {% endif %}
+
 
   </body>
 </html>

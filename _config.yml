@@ -13,3 +13,10 @@ gems:
 
 #Others
 markdown: kramdown
+
+
+# Disquss
+disqus:
+    shortname: fgio
+
+something: some things
