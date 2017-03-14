@@ -13,7 +13,7 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title> Homepagenya Fitsyu </title>
+    <title> Contoh Simpel Memakai Timer di Swift </title>
   </head>
 
   <body>
@@ -35,27 +35,34 @@
       <div class="inner clearfix">
         <section id="main-content">
           
-          <div id="home">
-  <h1>Postingan</h1>
-  <ul class="posts">
-    
-      <li>
-          <div>14 Mar 2017</div> &raquo; <a href="/2017/03/14/contoh-simpel-memakai-timer-di-swift.html">Contoh Simpel Memakai Timer di Swift</a>
-          <br>
-      </li>
-    
-      <li>
-          <div>08 Mar 2017</div> &raquo; <a href="/2017/03/08/mengubah-warna-icon-dan-title-UITabBarItem.html">Mengubah warna icon dan title UITabBarItem</a>
-          <br>
-      </li>
-    
-      <li>
-          <div>06 Mar 2017</div> &raquo; <a href="/2017/03/06/membungkam-fungsi-print-nya-swift.html">Membungkam fungsi print nya Swift</a>
-          <br>
-      </li>
-    
-  </ul>
-</div>
+          <h1>Contoh Simpel Memakai Timer di Swift</h1>
+<p class="meta">14 Mar 2017</p>
+
+<p>Ada banyak cara menggunakan Timer pada Swift.</p>
+
+<p>Contoh simple nya :</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kt">Timer</span><span class="o">.</span><span class="nf">scheduledTimer</span><span class="p">(</span> <span class="nv">withTimeInterval</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="nv">repeats</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>  <span class="nv">block</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> 
+                            
+  <span class="c1">// kode dalam blok ini akan di _eksekusi_ setelah 1 detik</span>
+													
+  <span class="k">self</span><span class="o">.</span><span class="nf">performSegue</span><span class="p">(</span><span class="nv">withIdentifier</span><span class="p">:</span> <span class="s">"toVcHome"</span><span class="p">,</span> <span class="nv">sender</span><span class="p">:</span> <span class="k">self</span><span class="p">)</span>
+ <span class="p">}</span>
+<span class="p">)</span></code></pre></figure>
+
+<p>Kode di atas berkhasiat untuk membuat transisi boongan (<em>mock</em>) dari SplashScreen ke Home menu setelah satu detik.</p>
+
+<p>Demikian!</p>
+
+<p>Selamat menjajal!</p>
+
+<blockquote>
+  <p><strong><em>Bye!</em></strong></p>
+</blockquote>
+
+<p><img src="http://i.imgur.com/aSYMQW1.gif" alt="Bye-bye" /></p>
+
+
 
 
         </section>
