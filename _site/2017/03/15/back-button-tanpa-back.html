@@ -13,7 +13,7 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title> Membungkam fungsi print nya Swift </title>
+    <title> Back button tanpa 'Back' </title>
   </head>
 
   <body>
@@ -35,32 +35,17 @@
       <div class="inner clearfix">
         <section id="main-content">
           
-          <h1>Membungkam fungsi print nya Swift</h1>
-<p class="meta">06 Mar 2017</p>
+          <h1>Back button tanpa 'Back'</h1>
+<p class="meta">15 Mar 2017</p>
 
-<h2 id="waktunya-rilis">Waktunya Rilis!!</h2>
+<p>Lagi-lagi suatu hal yang <em>tricky</em> dalam iOS development. Yaitu terkadang title nya si back button (yang di sebelah kiri di navigation bar) titlenya bukan ‘Back’ malah jadi title view controller sebelumnya.</p>
 
+<p>Akibatnya, title view controller yang sedang aktif jadi agak mencong ke kanan. Mungkin ada developer yang yaudahlah  terima apa adanya aja emang begitu. Saya sendiri sebenarnya gak begitu masalahin tampilan hehehe. Tapi kan yaaah pasti ada nanti yang nanya-nanya kenapa yang ini ‘Back’ yang itu <em>nggak</em> ‘Back’. Singkat kata, saya ilangin aja semua ‘Back’ dari semua Back button. Selesai. Pulang deh. Horee!!</p>
 <blockquote>
-  <p>dan sepertinya gak perlu lagi melihat log-log yang kita buat dengan fungsi print()</p>
+  <p>Padahal masih siang.</p>
 </blockquote>
 
-<p>ini kode swift nya:</p>
-
-<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">print</span><span class="p">(</span><span class="nv">items</span><span class="p">:</span> <span class="kt">Any</span><span class="o">...</span><span class="p">,</span> <span class="nv">separator</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">" "</span><span class="p">,</span> <span class="nv">terminator</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span> <span class="p">{</span>
-	
- <span class="cp">#if DEBUG</span>
-
-  <span class="kt">Swift</span><span class="o">.</span><span class="nf">print</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="nv">separator</span><span class="p">:</span> <span class="n">separator</span><span class="p">,</span> <span class="nv">terminator</span><span class="p">:</span> <span class="n">terminator</span><span class="p">)</span>
-        
- <span class="cp">#else</span>
-        
-  <span class="c1">// do nothing</span>
-    
- <span class="cp">#endif</span>
-<span class="p">}</span>
-		</code></pre></figure>
-
-<p>enjoy!</p>
+<p>Buat yang mau tau caranya gimana, liat nih:</p>
 
 
           
@@ -126,10 +111,10 @@
 
 
 
-          <div class="share-button share-button-facebook" data-share-url=http://localhost:4000/2017/03/06/membungkam-fungsi-print-nya-swift.html>
+          <div class="share-button share-button-facebook" data-share-url=http://localhost:4000/2017/03/15/back-button-tanpa-back.html>
               <div class="box">
                   
-                  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2017/03/06/membungkam-fungsi-print-nya-swift.html">
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2017/03/15/back-button-tanpa-back.html">
                     
                     <span class='share'>Share ke FB</span>
                   
