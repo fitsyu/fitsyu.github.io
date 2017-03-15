@@ -1,22 +1,13 @@
-# Setup
-name:         A Life Debugger
-tagline:      mudah-mudahan bermanfaat untuk umat manusia di muka bumi ini
-baseurl:      ""
-
-github:		"https://github.com/fitsyu"
-twitter: 	""
-
-
-# Gems
+---
+name: A Life Debugger
+tagline: mudah-mudahan bermanfaat untuk umat manusia di muka bumi ini
+baseurl: ''
+github: https://github.com/fitsyu
+twitter: ''
 gems:
-  - jekyll-paginate
-
-#Others
+- jekyll-paginate
 markdown: kramdown
-
-
-# Disquss
 disqus:
-    shortname: fgio
-
+  shortname: fgio
 something: some things
+title: my blog
