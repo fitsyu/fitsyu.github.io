@@ -959,7 +959,7 @@ dl dd {
 /* Shell */
 .shell-wrap {
     width: auto;
-    margin: 10px auto 0 auto;
+    margin: 16px auto 32px auto;
     box-shadow: 0 0 30px rgba(0,0,0,0.4);
     
     -webkit-border-radius: 3px;
