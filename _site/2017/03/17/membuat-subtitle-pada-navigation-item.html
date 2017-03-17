@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title> Membuat Subtitle Pada Navigation Item </title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>  Membuat Subtitle Pada Navigation Item  </h1>
+        <h2>  mudah-mudahan bermanfaat untuk umat manusia di muka bumi ini </h2>
+       
+    
+    
+     <img alt="@fitsyu" class="avatar" height="80" src="https://avatars3.githubusercontent.com/u/5017610?v=3&amp;u=c806a3153c389cfab39e87dae07560eba63eb081&amp;s=400" width="80" />
+       
+        <a href=https://github.com/fitsyu class="button"><small>ada di sini</small> GitHub nya </a>
+        
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          
+          <div class="shell-wrap">
+    <p class="shell-top-bar">fitsyu.github.io/_site/"17 Mar 2017"</p>
+    
+    <ul class="shell-body">
+        <li> cd "17 Mar 2017"/ </li>
+        <li> cat "Membuat Subtitle Pada Navigation Item" </li>
+    </ul>
+    
+</div>
+
+
+<p>Navigation Item hanya support title saja. Tapi tahukan anda ada property bernama <strong>titleView</strong> yang membolehkan title tersebut dapat diganti dengan view apa saja. (asal muat).</p>
+
+<p><img src="/images/title doang.png" alt="" /></p>
+
+<blockquote>
+  <p>Setelah pulang dari sini anda akan punya navigation item yang ada subtitlenya.</p>
+</blockquote>
+
+<p>Ikuti langkah-langkah mudah berikut:</p>
+
+<h1 id="download-zip">Download zip</h1>
+<p>Ada 3 file dalam zip ini.  <a href="/files/SubtitleView.zip">Download dulu </a>
+<a href="http://"></a></p>
+<h1 id="subtitleview">SubtitleView</h1>
+<p><img src="/images/subtitle view xib.png" alt="" /></p>
+
+<p>Tambahkan file SubtitleView.xib ini ke project Xcode.
+Anda bisa menggunakan File -&gt; Add Files to …</p>
+
+<h1 id="kode-untuk-subtitleview">Kode untuk SubtitleView</h1>
+
+<p>Tambahkan juga file SubtitleView.swift ke project Xcode anda.
+Atau buat file Swift baru yang isinya sebagai berikut:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//</span>
+<span class="c1">//  SubtitleView.swift</span>
+<span class="c1">//  Subtitle View</span>
+<span class="c1">//</span>
+<span class="c1">//  Created by Fitsyu on 3/17/17.</span>
+<span class="c1">//  Copyright © 2017 fitsyu. All rights reserved.</span>
+<span class="c1">//</span>
+
+<span class="kd">import</span> <span class="kt">UIKit</span>
+
+<span class="kd">final</span> <span class="kd">class</span> <span class="kt">SubtitleView</span><span class="p">:</span> <span class="kt">UIView</span> <span class="p">{</span>
+    
+    <span class="c1">// MARK: Outlets</span>
+    <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">txTitle</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span>
+    <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">txSubTitle</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span>
+    
+<span class="p">}</span></code></pre></figure>
+
+<p>lalu buka SubtitleView.xib dan ganti kelasnya jadi SubtitleView.</p>
+
+<h1 id="loading-subtitleview">Loading SubtitleView</h1>
+<p>Kode dalam file ‘Useful Extension.swift’ ini berguna untuk me <em>load</em> SubtitleView
+dan wrappernya.</p>
+
+<p>Jadi jangan sampai lupa untuk ditambahkan juga ke dalam project.</p>
+<h1 id="coba">Coba</h1>
+<div class="highlighter-rouge"><pre class="highlight"><code>    navigationItem.title = "Cuma Title"
+    navigationItem.setSubtitle("Sekarang ada subtitlenya 😄")
+</code></pre>
+</div>
+
+<p>Letakkan misalnya di <em>viewDidLoad()</em></p>
+<h1 id="hasil">Hasil</h1>
+<p>Kalau berhasil akan seperti ini</p>
+
+<p><img src="/images/with subtitle.png" alt="" /></p>
+
+<h1 id="demikian">Demikian</h1>
+
+<p>Semoga berguna!</p>
+
+<blockquote>
+  <p><strong><em>Bye!</em></strong></p>
+</blockquote>
+
+<p><img src="http://i.imgur.com/aSYMQW1.gif" alt="Bye-bye" /></p>
+
+
+
+          
+          
+            
+
+          
+
+        </section>
+
+        <aside id="sidebar">
+        
+    
+    
+          <a href=/ class="button">
+            <small> Back </small>
+            Home
+          </a>
+
+
+        
+        
+        
+            
+                
+                
+                <a href=/about.html class="button">
+                <small>Page</small>
+                
+                 About
+                
+                </a>
+                
+            
+                
+                
+        
+        
+        
+        
+            
+                
+                
+                <a href=/contact.html class="button">
+                <small>Page</small>
+                
+                 Contact
+                
+                </a>
+                
+            
+                
+                
+        
+        
+        
+        
+            
+                
+                
+        
+        
+
+
+
+          <div class="share-button share-button-facebook" data-share-url=http://localhost:4000/2017/03/17/membuat-subtitle-pada-navigation-item.html>
+              <div class="box">
+                  
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2017/03/17/membuat-subtitle-pada-navigation-item.html">
+                    
+                    <span class='share'>Share</span>
+                  
+                  </a>
+              </div>
+          </div>
+          
+          <p class="repo-owner"> theme by
+            <a href="https://github.com/pietromenna/jekyll-architect-theme">jekyll-architect-theme</a>
+          </p>
+          
+
+        </aside>
+      </div>
+    </div>
+
+
+
+
+
+
+  </body>
+</html>
