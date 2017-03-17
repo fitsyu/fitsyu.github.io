@@ -1,6 +1,7 @@
 ---
 title: Contact
 layout: page
+comments: false
 ---
 
 ## Email

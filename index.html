@@ -2,16 +2,27 @@
 layout: default
 title: Homepagenya Fitsyu
 exclude: true
+comments: false
 ---
 
 <div id="home">
   <h1>Postingan</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li>
-          <div>{{ post.date | date_to_string }}</div> &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-          <br>
-      </li>
-    {% endfor %}
-  </ul>
+  
+  <div class="shell-wrap">
+      <p class="shell-top-bar">fitsyu.github.io/home/</p>
+
+        <ul class="shell-body">
+            <li> cd _site/ </li>
+            {% for post in site.posts %}
+            <li>
+                <div> ls "{{ post.date | date_to_string }}" </div> <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+               
+            </li>
+            {% endfor %}
+        </ul>
+
+
+  </div>
+  
+  
 </div>

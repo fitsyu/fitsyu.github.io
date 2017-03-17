@@ -1,7 +1,7 @@
 ---
 title: About
 layout: page
-New field 2: tentang
+comments: false
 ---
 
 I am a programmer.
