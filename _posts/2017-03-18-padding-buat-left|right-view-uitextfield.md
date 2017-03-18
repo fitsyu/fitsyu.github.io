@@ -66,7 +66,7 @@ Mudah. Tinggal diganti aja left nya jadi right.
 
 
 # Demikian
-Lihat di stackoverflow [](http://stackoverflow.com/questions/32525006/how-to-get-left-padding-on-uitextfield-leftview-image/42849074#42849074)
+Lihat di    [stackoverflow ](http://stackoverflow.com/questions/32525006/how-to-get-left-padding-on-uitextfield-leftview-image/42849074#42849074)
 
 semoga berguna ya. Thanks!
 
