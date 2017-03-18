@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title> Padding Untuk LeftView atau RightView UITextField </title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>  Padding Untuk LeftView atau RightView UITextField  </h1>
+        <h2>  mudah-mudahan bermanfaat untuk umat manusia di muka bumi ini </h2>
+       
+    
+    
+     <img alt="@fitsyu" class="avatar" height="80" src="https://avatars3.githubusercontent.com/u/5017610?v=3&amp;u=c806a3153c389cfab39e87dae07560eba63eb081&amp;s=400" width="80" />
+       
+        <a href=https://github.com/fitsyu class="button"><small>ada di sini</small> GitHub nya </a>
+        
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          
+          <div class="shell-wrap">
+    <p class="shell-top-bar">fitsyu.github.io/_site/"18 Mar 2017"</p>
+    
+    <ul class="shell-body">
+        <li> cd "18 Mar 2017"/ </li>
+        <li> cat "Padding Untuk LeftView atau RightView UITextField" </li>
+    </ul>
+    
+</div>
+
+
+<p>Bila anda memberikan view untuk LeftView atau RightView pada UITextField, anda akan lihat bahwa view tersebut terlalu mepet ke pinggir UITextField.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>txOrgAirport.leftView = UIImageView(image: #imageLiteral(resourceName: "icon_location"))
+txOrgAirport.leftViewMode = .always
+</code></pre>
+</div>
+
+<p><img src="/images/left view that too close too edge.png" alt="too close" /></p>
+
+<h1 id="beberapa-pendekatan">beberapa pendekatan</h1>
+<p>Saya udah coba memberikan auto layout namun tak berhasil.</p>
+
+<p>Saya juga mencoba mengedit iconnya di GIMP dan memberikan padding manual :(. Walaupun ini berhasil tapi sangat terasa melelahkan bila banyak UITextField yang perlu diberi icon.</p>
+
+<p>Saya juga mencoba mengubah <strong>x</strong> pada frame view nya, seperti berikut:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>let iconView = UIImageView(frame: CGRect(x: 8, y: 0, width: 20, height: 20))
+iconView.image = icon_location
+</code></pre>
+</div>
+
+<p>Tetap tidak berhasil.</p>
+<blockquote>
+  <p>Yess!</p>
+</blockquote>
+
+<p>Lalu saya coba membungkus ImageView di dalam View biasa. View yang diluar saya berikan width lebih lebar sesuai jumlah padding yang diinginkan. Setelah itu <strong>x</strong> dari ImageView itu saya buat agar sesuai jumlah paddingnya.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>let outerView = UIView(frame: CGRect(x: 0, y: 0, width: size+padding, height: size) )
+let iconView  = UIImageView(frame: CGRect(x: padding, y: 0, width: size, height: size))
+</code></pre>
+</div>
+
+<p><strong><em>Nah yang ini baru bisa!</em></strong></p>
+
+<p>Supaya lebih mudah digunakan, mari kita taro dalam <strong>extension</strong>.</p>
+<blockquote>
+  <p>Demen banget saya sama fitur extension di Swift ini :-)</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>extension UITextField {
+
+ /// set icon of 20x20 with left padding of 8px 
+ func setLeftIcon(_ icon: UIImage) {
+
+		let padding = 8
+		let size = 20
+
+		let outerView = UIView(frame: CGRect(x: 0, y: 0, width: size+padding, height: size) )
+		let iconView  = UIImageView(frame: CGRect(x: padding, y: 0, width: size, height: size))
+		iconView.image = icon
+		outerView.addSubview(iconView)
+
+		leftView = outerView
+		leftViewMode = .always  
+	}
+}
+</code></pre>
+</div>
+
+<h1 id="cara-pake">Cara pake</h1>
+<p>anggap aja saya punya outlet namanya txOrigin ya, tipenya UITextField</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>txOrigin.setLeftIcon(icon_location)
+</code></pre>
+</div>
+
+<h1 id="khasiat">Khasiat</h1>
+<p><img src="https://i.stack.imgur.com/3mAqr.png" alt="left view with padding" /></p>
+
+<h1 id="rightview">RightView?</h1>
+<p>Mudah. Tinggal diganti aja left nya jadi right.</p>
+
+<h1 id="demikian">Demikian</h1>
+<p>Lihat di stackoverflow <a href="http://stackoverflow.com/questions/32525006/how-to-get-left-padding-on-uitextfield-leftview-image/42849074#42849074"></a></p>
+
+<p>semoga berguna ya. Thanks!</p>
+
+<blockquote>
+  <p><strong><em>Bye!</em></strong></p>
+</blockquote>
+
+<p><img src="/images/bye.gif" alt="bye" /></p>
+
+
+          
+          
+            
+
+          
+
+        </section>
+
+        <aside id="sidebar">
+        
+    
+    
+          <a href=/ class="button">
+            <small> Back </small>
+            Home
+          </a>
+
+
+        
+        
+        
+            
+                
+                
+                <a href=/about.html class="button">
+                <small>Page</small>
+                
+                 About
+                
+                </a>
+                
+            
+                
+                
+        
+        
+        
+        
+            
+                
+                
+                <a href=/contact.html class="button">
+                <small>Page</small>
+                
+                 Contact
+                
+                </a>
+                
+            
+                
+                
+        
+        
+        
+        
+            
+                
+                
+        
+        
+
+
+
+          <div class="share-button share-button-facebook" data-share-url=http://localhost:4000/2017/03/18/padding-buat-left-right-view-uitextfield.html>
+              <div class="box">
+                  
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2017/03/18/padding-buat-left-right-view-uitextfield.html">
+                    
+                    <span class='share'>Share</span>
+                  
+                  </a>
+              </div>
+          </div>
+          
+          <p class="repo-owner"> theme by
+            <a href="https://github.com/pietromenna/jekyll-architect-theme">jekyll-architect-theme</a>
+          </p>
+          
+
+        </aside>
+      </div>
+    </div>
+
+
+
+
+
+
+  </body>
+</html>
