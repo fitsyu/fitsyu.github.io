@@ -1,6 +1,7 @@
 ---
 title: Padding Untuk LeftView atau RightView UITextField
 layout: post
+thumbnail: /images/left view that too close too edge.png
 ---
 
 Bila anda memberikan view untuk LeftView atau RightView pada UITextField, anda akan lihat bahwa view tersebut terlalu mepet ke pinggir UITextField.

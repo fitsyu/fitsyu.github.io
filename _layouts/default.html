@@ -14,6 +14,11 @@
     <![endif]-->
 
     <title> {{ page.title }} </title>
+    
+    {% if page.thumbnail %}
+    <meta property="og:image" content="{{site.url}}{{page.thumbnail}}" />
+    {% endif %}
+    
   </head>
 
   <body>
@@ -80,6 +85,16 @@
                   <a href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{page.url}}">
                     
                     <span class='share'>Share</span>
+                  
+                  </a>
+              </div>
+          </div>
+          
+          <div class="share-button share-button-twitter" data-share-url={{site.url}}{{page.url}}>
+              <div class="box">
+                
+                <a href='http://twitter.com/share?url={{site.url}}{{page.url}}&text={{page.title}}'>
+                    <span class='share'>Tweet</span>
                   
                   </a>
               </div>
