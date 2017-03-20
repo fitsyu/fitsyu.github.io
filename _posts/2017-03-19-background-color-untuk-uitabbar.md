@@ -1,6 +1,7 @@
 ---
 title: Background Color Untuk UITabBar
 layout: post
+thumbnail: "/images/bg tinted tabbar.png"
 ---
 
 Ceritanya ingin memberikan warna background pas tabnya  di _select_. Namun sayangnya tidak ada property yang bernama _selection background tint_ yang bisa diset di storyboard ataupun di code. Yang ada malah property _selection indicator image_. 
