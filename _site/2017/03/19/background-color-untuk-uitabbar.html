@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title> Background Color Untuk UITabBar </title>
+    
+    
+    
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>  Background Color Untuk UITabBar  </h1>
+        <h2>  mudah-mudahan bermanfaat untuk umat manusia di muka bumi ini </h2>
+       
+    
+    
+     <img alt="@fitsyu" class="avatar" height="80" src="https://avatars3.githubusercontent.com/u/5017610?v=3&amp;u=c806a3153c389cfab39e87dae07560eba63eb081&amp;s=400" width="80" />
+       
+        <a href=https://github.com/fitsyu class="button"><small>ada di sini</small> GitHub nya </a>
+        
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          
+          <div class="shell-wrap">
+    <p class="shell-top-bar">fitsyu.github.io/_site/"19 Mar 2017"</p>
+    
+    <ul class="shell-body">
+        <li> cd "19 Mar 2017"/ </li>
+        <li> cat "Background Color Untuk UITabBar" </li>
+    </ul>
+    
+</div>
+
+
+<p>Ceritanya ingin memberikan warna background pas tabnya  di <em>select</em>. Namun sayangnya tidak ada property yang bernama <em>selection background tint</em> yang bisa diset di storyboard ataupun di code. Yang ada malah property <em>selection indicator image</em>.</p>
+
+<p>Lalu…</p>
+<h1 id="apa-yang-bisa-dilakukan-">Apa yang bisa dilakukan ?</h1>
+
+<h2 id="memasang-gambar-polos-sebagai-background">Memasang gambar polos sebagai background.</h2>
+<p><img src="/images/tab selected bg color.png" alt="" /></p>
+
+<p>Karena yang ada property <em>selection indicator image</em>, jadi apa boleh buat.
+Berikut hasil dari Tab Bar yang diberikan <em>selection indicator image</em>:</p>
+
+<p><img src="/images/bg color image too big.png" alt="" /></p>
+
+<blockquote>
+  <p>Gawat! Gambarnya terlalu besar!</p>
+</blockquote>
+
+<h2 id="memasang-gambar-polos-dengan-ukuran-fix">Memasang gambar polos dengan ukuran fix</h2>
+<p>Seperti yang sudah dilihat dengan memberikan <em>selection indicator image</em>. gambar nya ternyata tidak di _resize_secara internal  agar sesuai dengan ukuran tab  bar nya. :(</p>
+
+<p>Dengan kata lain, gambarnya harus sudah fix <em>size</em> nya.</p>
+
+<p>Oke. Kalau begitu kita tinggal <em>resize</em> gambarnya saja. Mudah. Tapi berapa <em>size</em> nya??</p>
+
+<blockquote>
+  <p>Good Question</p>
+</blockquote>
+
+<p>Subclass UITabBarControllernya dan pada <em>viewDidLoad()</em> kita masukkan kode berikut:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>class BgColoredTabBarController: UITabBarController {
+		override func viewDidLoad() {
+				super.viewDidLoad()
+
+
+				let width  = tabBar.frame.width / 4
+				let height = tabBar.frame.height
+
+				print("\(width)x\(height)")
+
+		}
+}
+</code></pre>
+</div>
+
+<p>Set custom class di storyboard dengan class yang baru dibuat. Lalu <strong>CMD+R</strong>.</p>
+
+<p>Dapet! dan berikut outputnya:
+<strong>103.5x49.0</strong> (<em>Menggunakan Simulator iPhone 7s</em>)</p>
+
+<p>Dari informasi tersebut, kita <em>resize</em> gambar yang tadi digunakan sebagai <em>selection indicator image</em>. Kemudian mengganti property <em>selection indicator image</em> yang lama dengan yang sudah diresize ini. 
+<strong>CMD+R</strong> dan hasilnya:</p>
+
+<p><img src="/images/work with fixed size img.png" alt="" /></p>
+
+<p>Yeah!  berhasil juga.</p>
+
+<p>Tapi,</p>
+<ul>
+  <li>Bagaimana kalo jumlah tab nya berubah ?</li>
+  <li>Bagaimana kalo harus mengganti warna ?</li>
+  <li>Bagaimana ukurannya kalo di iPhone yang lain?</li>
+</ul>
+
+<p>Pada akhirnya akan ada ketergantungan yang besar dengan image editor eksternal dan itu dapat memperlambat proses <em>development</em>.</p>
+
+<p>Kita kan <em>coder</em> kenapa gak buat saja <em>code</em> nya.</p>
+
+<p>Yaitu beberapa baris <em>code</em>  yang dengan parameter warna saja dapat membuat sebuah objek gambar polos dengan warna yang ditentukan sesuai dengan ukuran tab yang sedang digunakan.</p>
+
+<h2 id="biarkan-semuanya-dibuat-dengan-code">Biarkan semuanya dibuat dengan <em>code</em></h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>extension UITabBarController {
+		func setBarSelectedTintColor(_ color: UIColor) {
+				// determine the size
+				let w = self.tabBar.frame.width / CGFloat(self.tabBar.items!.count)
+				let h = self.tabBar.frame.height
+				let size = CGSize(width: w, height: h)
+
+				// make image
+				UIGraphicsBeginImageContextWithOptions(size, false, 0)
+				color.setFill()
+				UIRectFill(CGRect(x:0, y:0, width:size.width, height:size.height))
+				let image = UIGraphicsGetImageFromCurrentImageContext()
+				UIGraphicsEndImageContext()
+
+				self.tabBar.selectionIndicatorImage = image
+		}
+}
+</code></pre>
+</div>
+
+<p>Contoh cara pakenya:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    setBarSelectedTintColor( UIColor.black )
+</code></pre>
+</div>
+
+<p>Khasiatnya:</p>
+
+<p><img src="/images/bg tinted tabbar.png" alt="" /></p>
+<h1 id="demikian">Demikian</h1>
+
+<p>Mudah-mudahan berguna. Thanks!</p>
+
+<blockquote>
+  <p><strong><em>Bye!</em></strong></p>
+</blockquote>
+
+<p><img src="/images/bye.gif" alt="bye" /></p>
+
+
+          
+          
+            
+
+          
+
+        </section>
+
+        <aside id="sidebar">
+        
+    
+    
+          <a href=/ class="button">
+            <small> Back </small>
+            Home
+          </a>
+
+
+        
+        
+        
+            
+                
+                
+                <a href=/about.html class="button">
+                <small>Page</small>
+                
+                 About
+                
+                </a>
+                
+            
+                
+                
+        
+        
+        
+        
+            
+                
+                
+        
+        
+
+
+
+          <div class="share-button share-button-facebook" data-share-url=http://localhost:4000/2017/03/19/background-color-untuk-uitabbar.html>
+              <div class="box">
+                  
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2017/03/19/background-color-untuk-uitabbar.html">
+                    
+                    <span class='share'>Share</span>
+                  
+                  </a>
+              </div>
+          </div>
+          
+          <div class="share-button share-button-twitter" data-share-url=http://localhost:4000/2017/03/19/background-color-untuk-uitabbar.html>
+              <div class="box">
+                
+                <a href='http://twitter.com/share?url=http://localhost:4000/2017/03/19/background-color-untuk-uitabbar.html&text=Background Color Untuk UITabBar'>
+                    <span class='share'>Tweet</span>
+                  
+                  </a>
+              </div>
+          </div>
+          
+          <p class="repo-owner"> theme by
+            <a href="https://github.com/pietromenna/jekyll-architect-theme">jekyll-architect-theme</a>
+          </p>
+          
+
+        </aside>
+      </div>
+    </div>
+
+
+
+
+
+
+  </body>
+</html>
