@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Membuat Subtitle Pada Navigation Item | Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Navigation Item hanya support title saja. Tapi tahukan kita ada property bernama titleView yang membolehkan title tersebut dapat diganti dengan view apa saja. (asal muat). ![](/images/title doang.png)">
+<meta name="keywords" content="swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Membuat Subtitle Pada Navigation Item">
+<meta property="og:url" content="http://fitsyu.github.io/2017/03/17/2017-03-17-membuat-subtitle-pada-navigation-item/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="Navigation Item hanya support title saja. Tapi tahukan kita ada property bernama titleView yang membolehkan title tersebut dapat diganti dengan view apa saja. (asal muat). ![](/images/title doang.png)">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://i.imgur.com/aSYMQW1.gif">
+<meta property="og:updated_time" content="2019-09-13T08:05:52.562Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Membuat Subtitle Pada Navigation Item">
+<meta name="twitter:description" content="Navigation Item hanya support title saja. Tapi tahukan kita ada property bernama titleView yang membolehkan title tersebut dapat diganti dengan view apa saja. (asal muat). ![](/images/title doang.png)">
+<meta name="twitter:image" content="http://i.imgur.com/aSYMQW1.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Draft and Drift</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://fitsyu.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017-03-17-membuat-subtitle-pada-navigation-item" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/17/2017-03-17-membuat-subtitle-pada-navigation-item/" class="article-date">
+  <time datetime="2017-03-16T17:00:00.000Z" itemprop="datePublished">2017-03-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Membuat Subtitle Pada Navigation Item
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Navigation Item hanya support title saja. Tapi tahukan kita ada property bernama <strong>titleView</strong> yang membolehkan title tersebut dapat diganti dengan view apa saja. (asal muat).</p>
+<p>![](/images/title doang.png)</p>
+<blockquote>
+<p>Setelah pulang dari sini kita akan punya navigation item yang ada subtitlenya.</p>
+</blockquote>
+<p>Ikuti langkah-langkah mudah berikut:</p>
+<h1 id="Download-zip"><a href="#Download-zip" class="headerlink" title="Download zip"></a>Download zip</h1><p>Ada 3 file dalam zip ini.  <a href="/files/SubtitleView.zip">Download dulu </a><br><a href="http://" target="_blank" rel="noopener"></a></p>
+<h1 id="SubtitleView"><a href="#SubtitleView" class="headerlink" title="SubtitleView"></a>SubtitleView</h1><p>![](/images/subtitle view xib.png)</p>
+<p>Tambahkan file SubtitleView.xib ini ke project Xcode.<br>kita bisa menggunakan File -&gt; Add Files to …</p>
+<h1 id="Kode-untuk-SubtitleView"><a href="#Kode-untuk-SubtitleView" class="headerlink" title="Kode untuk SubtitleView"></a>Kode untuk SubtitleView</h1><p>Tambahkan juga file SubtitleView.swift ke project Xcode kita.<br>Atau buat file Swift baru yang isinya sebagai berikut:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  SubtitleView.swift</span></span><br><span class="line"><span class="comment">//  Subtitle View</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by Fitsyu on 3/17/17.</span></span><br><span class="line"><span class="comment">//  Copyright © 2017 fitsyu. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">SubtitleView</span>: <span class="title">UIView</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// MARK: Outlets</span></span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> txTitle: <span class="type">UILabel!</span></span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> txSubTitle: <span class="type">UILabel!</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>lalu buka SubtitleView.xib dan ganti kelasnya jadi SubtitleView.</p>
+<h1 id="Loading-SubtitleView"><a href="#Loading-SubtitleView" class="headerlink" title="Loading SubtitleView"></a>Loading SubtitleView</h1><p>Kode dalam file ‘Useful Extension.swift’ ini berguna untuk me <em>load</em> SubtitleView<br>dan wrappernya.</p>
+<p>Jadi jangan sampai lupa untuk ditambahkan juga ke dalam project.</p>
+<h1 id="Coba"><a href="#Coba" class="headerlink" title="Coba"></a>Coba</h1><pre><code>navigationItem.title = &quot;Cuma Title&quot;
+navigationItem.setSubtitle(&quot;Sekarang ada subtitlenya 😄&quot;)</code></pre><p>Letakkan misalnya di <em>viewDidLoad()</em></p>
+<h1 id="Hasil"><a href="#Hasil" class="headerlink" title="Hasil"></a>Hasil</h1><p>Kalau berhasil akan seperti ini</p>
+<p>![](/images/with subtitle.png)</p>
+<h1 id="Demikian"><a href="#Demikian" class="headerlink" title="Demikian"></a>Demikian</h1><p>Semoga berguna!</p>
+<blockquote>
+<p><strong><em>Bye!</em></strong></p>
+</blockquote>
+<p><img src="http://i.imgur.com/aSYMQW1.gif" alt="Bye-bye"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fitsyu.github.io/2017/03/17/2017-03-17-membuat-subtitle-pada-navigation-item/" data-id="ck0hva7wm0004kvw42k1cblb3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/18/2017-03-18-padding-buat-left|right-view-uitextfield/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Padding Untuk LeftView atau RightView UITextField
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/15/2017-03-15-back-button-tanpa-back/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Back button tanpa &#39;Back&#39;</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/general/">general</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOt/">iOt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/general/" style="font-size: 10px;">general</a> <a href="/tags/iOt/" style="font-size: 10px;">iOt</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/15/Big Button/">Big Button</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/Welcome-Back/">Welcome Back</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/10/2017-09-10-menginstall-app-ios-dari-file-ipa/">Menginstall App iOS dari file IPA</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/01/2017-05-01-Membuat-Next-Button-Keyboard-Bekerja/">Membuat Next Button Keyboard Bekerja</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/10/2017-04-10-mengatasi-keyboard-yang-menutupi-uitextfield/">Mengatasi Keyboard Yang Menutupi UITextField</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Fitsyu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

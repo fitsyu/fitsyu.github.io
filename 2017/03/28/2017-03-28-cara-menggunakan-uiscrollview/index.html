@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Cara Menggunakan UIScrollView | Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="UIScrollView kalo kita nggak tau cara pakenya bakalan susah.Intinya kita harus inget beberapa hal ini tiap kali mau ngedrag UIScrollView ke UIViewController kita. Inget:  ScrollView cuma bisa punya sa">
+<meta name="keywords" content="swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cara Menggunakan UIScrollView">
+<meta property="og:url" content="http://fitsyu.github.io/2017/03/28/2017-03-28-cara-menggunakan-uiscrollview/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="UIScrollView kalo kita nggak tau cara pakenya bakalan susah.Intinya kita harus inget beberapa hal ini tiap kali mau ngedrag UIScrollView ke UIViewController kita. Inget:  ScrollView cuma bisa punya sa">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://fitsyu.github.io/images/bye.gif">
+<meta property="og:updated_time" content="2019-09-13T08:05:52.564Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cara Menggunakan UIScrollView">
+<meta name="twitter:description" content="UIScrollView kalo kita nggak tau cara pakenya bakalan susah.Intinya kita harus inget beberapa hal ini tiap kali mau ngedrag UIScrollView ke UIViewController kita. Inget:  ScrollView cuma bisa punya sa">
+<meta name="twitter:image" content="http://fitsyu.github.io/images/bye.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Draft and Drift</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://fitsyu.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017-03-28-cara-menggunakan-uiscrollview" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/2017-03-28-cara-menggunakan-uiscrollview/" class="article-date">
+  <time datetime="2017-03-27T17:00:00.000Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Cara Menggunakan UIScrollView
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>UIScrollView kalo kita nggak tau cara pakenya bakalan susah.<br>Intinya kita harus inget beberapa hal ini tiap kali mau ngedrag UIScrollView ke UIViewController kita.</p>
+<p>Inget:</p>
+<ul>
+<li>ScrollView cuma bisa punya satu View di dalemnya sebut aja namanya ContentView</li>
+<li>Patokin leading, trailing, top dan bottom Content View ke ScrollView</li>
+<li>Ukuran untuk View yang di dalem tidak bisa tergantung ke ukuran ScrollView tapi ke selain ScrollView</li>
+</ul>
+<p>Setelah mensetup hal-hal di atas barulah kita bisa sepuasnya nambahin apa aja ke dalem ContentView itu. Nanti kalo kontennya lebih besar dari ukuran ScrollView, konten tersebut akan dapat di <em>scroll</em>.</p>
+<h1 id="Simak-cuplikan-berikut"><a href="#Simak-cuplikan-berikut" class="headerlink" title="Simak cuplikan berikut!"></a>Simak cuplikan berikut!</h1><p>Jadi ini ceritanya ada satu UIScrollView yang ukurannya sama dengan ukuran root view dalam suatu UIViewController.</p>
+<h2 id="Drag-sebuah-view-ke-dalem-UIScrollView"><a href="#Drag-sebuah-view-ke-dalem-UIScrollView" class="headerlink" title="Drag sebuah view ke dalem UIScrollView"></a>Drag sebuah view ke dalem UIScrollView</h2><p>Rename view tersebut jadi Content View biar enak nanti pas liat constraint nya</p>
+<p>![Step 1](/images/UIScrollView 1.png)</p>
+<h2 id="Patokin-leading-trailing-top-dan-bottom"><a href="#Patokin-leading-trailing-top-dan-bottom" class="headerlink" title="Patokin leading, trailing, top dan bottom"></a>Patokin leading, trailing, top dan bottom</h2><p>![Step 1](/images/UIScrollView 2.png)</p>
+<h2 id="Benerin-lagi"><a href="#Benerin-lagi" class="headerlink" title="Benerin lagi"></a>Benerin lagi</h2><p>Bersihkan angka -angka kotor itu</p>
+<p>![Step 1](/images/UIScrollView 3.png)</p>
+<p>Agar jadi seperti ini</p>
+<p>![Step 1](/images/UIScrollView 4.png)</p>
+<h2 id="Tentukan-ukuran-ContentView"><a href="#Tentukan-ukuran-ContentView" class="headerlink" title="Tentukan ukuran ContentView"></a>Tentukan ukuran ContentView</h2><p>Ukuran content view tidak boleh bergantung ke ScrollView. Pada contoh ini ukuran ContentView <em>width</em> nya sama dengan <em>width</em> super view dan <em>height</em> nya wrap content ke <strong>StackView</strong></p>
+<p>![Step 1](/images/UIScrollView 5.png)</p>
+<p>Dapat dilihat yang merah-merah (tkita constraint masih ada yang salah) sudah hilang. Kini UIScrollView dengan ContentView siap digunakan.</p>
+<h1 id="Demikian"><a href="#Demikian" class="headerlink" title="Demikian"></a>Demikian</h1><p>Mudah-mudahan berguna. Thanks!</p>
+<blockquote>
+<p><strong><em>Bye!</em></strong></p>
+</blockquote>
+<p><img src="/images/bye.gif" alt="bye"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fitsyu.github.io/2017/03/28/2017-03-28-cara-menggunakan-uiscrollview/" data-id="ck0hva7ws000dkvw41penljjb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/10/2017-04-10-mengatasi-keyboard-yang-menutupi-uitextfield/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Mengatasi Keyboard Yang Menutupi UITextField
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/19/2017-03-19-background-color-untuk-uitabbar/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Background Color Untuk UITabBar</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/general/">general</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOt/">iOt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/general/" style="font-size: 10px;">general</a> <a href="/tags/iOt/" style="font-size: 10px;">iOt</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/15/Big Button/">Big Button</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/Welcome-Back/">Welcome Back</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/10/2017-09-10-menginstall-app-ios-dari-file-ipa/">Menginstall App iOS dari file IPA</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/01/2017-05-01-Membuat-Next-Button-Keyboard-Bekerja/">Membuat Next Button Keyboard Bekerja</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/10/2017-04-10-mengatasi-keyboard-yang-menutupi-uitextfield/">Mengatasi Keyboard Yang Menutupi UITextField</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Fitsyu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

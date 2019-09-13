@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Padding Untuk LeftView atau RightView UITextField | Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Bila kita memberikan view untuk LeftView atau RightView pada UITextField, kita akan lihat bahwa view tersebut terlalu mepet ke pinggir UITextField. 123	txOrgAirport.leftView = UIImageView(image: #imag">
+<meta name="keywords" content="swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Padding Untuk LeftView atau RightView UITextField">
+<meta property="og:url" content="http://fitsyu.github.io/2017/03/18/2017-03-18-padding-buat-left|right-view-uitextfield/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="Bila kita memberikan view untuk LeftView atau RightView pada UITextField, kita akan lihat bahwa view tersebut terlalu mepet ke pinggir UITextField. 123	txOrgAirport.leftView = UIImageView(image: #imag">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.stack.imgur.com/3mAqr.png">
+<meta property="og:image" content="http://fitsyu.github.io/images/bye.gif">
+<meta property="og:updated_time" content="2019-09-13T08:05:52.563Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Padding Untuk LeftView atau RightView UITextField">
+<meta name="twitter:description" content="Bila kita memberikan view untuk LeftView atau RightView pada UITextField, kita akan lihat bahwa view tersebut terlalu mepet ke pinggir UITextField. 123	txOrgAirport.leftView = UIImageView(image: #imag">
+<meta name="twitter:image" content="https://i.stack.imgur.com/3mAqr.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Draft and Drift</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://fitsyu.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017-03-18-padding-buat-left|right-view-uitextfield" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/18/2017-03-18-padding-buat-left|right-view-uitextfield/" class="article-date">
+  <time datetime="2017-03-17T17:00:00.000Z" itemprop="datePublished">2017-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Padding Untuk LeftView atau RightView UITextField
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Bila kita memberikan view untuk LeftView atau RightView pada UITextField, kita akan lihat bahwa view tersebut terlalu mepet ke pinggir UITextField.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">	txOrgAirport.leftView = <span class="type">UIImageView</span>(image: #imageLiteral(resourceName: <span class="string">"icon_location"</span>))</span><br><span class="line">	txOrgAirport.leftViewMode = .always</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+
+<p>![too close](/images/left view that too close too edge.png)</p>
+<h1 id="beberapa-pendekatan"><a href="#beberapa-pendekatan" class="headerlink" title="beberapa pendekatan"></a>beberapa pendekatan</h1><p>Saya udah coba memberikan auto layout namun tak berhasil.</p>
+<p>Saya juga mencoba mengedit iconnya di GIMP dan memberikan padding manual :(. Walaupun ini berhasil tapi sangat terasa melelahkan bila banyak UITextField yang perlu diberi icon.</p>
+<p>Saya juga mencoba mengubah <strong>x</strong> pada frame view nya, seperti berikut:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">let</span> iconView = <span class="type">UIImageView</span>(frame: <span class="type">CGRect</span>(x: <span class="number">8</span>, y: <span class="number">0</span>, width: <span class="number">20</span>, height: <span class="number">20</span>))</span><br><span class="line">	iconView.image = icon_location</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+
+<p>Tetap tidak berhasil.</p>
+<blockquote>
+<p>Yess!</p>
+</blockquote>
+<p>Lalu saya coba membungkus ImageView di dalam View biasa. View yang diluar saya berikan width lebih lebar sesuai jumlah padding yang diinginkan. Setelah itu <strong>x</strong> dari ImageView itu saya buat agar sesuai jumlah paddingnya.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">let</span> outerView = <span class="type">UIView</span>(frame: <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: size+padding, height: size) )</span><br><span class="line">	<span class="keyword">let</span> iconView  = <span class="type">UIImageView</span>(frame: <span class="type">CGRect</span>(x: padding, y: <span class="number">0</span>, width: size, height: size))</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>Nah yang ini baru bisa!</em></strong></p>
+<p>Supaya lebih mudah digunakan, mari kita taro dalam <strong>extension</strong>.</p>
+<blockquote>
+<p>Demen banget saya sama fitur extension di Swift ini :-)</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UITextField</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"> <span class="comment">/// set icon of 20x20 with left padding of 8px</span></span><br><span class="line"> <span class="function"><span class="keyword">func</span> <span class="title">setLeftIcon</span><span class="params">(<span class="number">_</span> icon: UIImage)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">let</span> padding = <span class="number">8</span></span><br><span class="line">		<span class="keyword">let</span> size = <span class="number">20</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">let</span> outerView = <span class="type">UIView</span>(frame: <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: size+padding, height: size) )</span><br><span class="line">		<span class="keyword">let</span> iconView  = <span class="type">UIImageView</span>(frame: <span class="type">CGRect</span>(x: padding, y: <span class="number">0</span>, width: size, height: size))</span><br><span class="line">		iconView.image = icon</span><br><span class="line">		outerView.addSubview(iconView)</span><br><span class="line"></span><br><span class="line">		leftView = outerView</span><br><span class="line">		leftViewMode = .always  </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Cara-pake"><a href="#Cara-pake" class="headerlink" title="Cara pake"></a>Cara pake</h1><p>anggap aja saya punya outlet namanya txOrigin ya, tipenya UITextField</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">	txOrigin.setLeftIcon(icon_location)</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+
+<h1 id="Khasiat"><a href="#Khasiat" class="headerlink" title="Khasiat"></a>Khasiat</h1><p><img src="https://i.stack.imgur.com/3mAqr.png" alt="left view with padding"></p>
+<h1 id="RightView"><a href="#RightView" class="headerlink" title="RightView?"></a>RightView?</h1><p>Mudah. Tinggal diganti aja left nya jadi right.</p>
+<h1 id="Demikian"><a href="#Demikian" class="headerlink" title="Demikian"></a>Demikian</h1><p>Lihat di    <a href="http://stackoverflow.com/questions/32525006/how-to-get-left-padding-on-uitextfield-leftview-image/42849074#42849074" target="_blank" rel="noopener">stackoverflow </a></p>
+<p>semoga berguna ya. Thanks!</p>
+<blockquote>
+<p><strong><em>Bye!</em></strong></p>
+</blockquote>
+<p><img src="/images/bye.gif" alt="bye"></p>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fitsyu.github.io/2017/03/18/2017-03-18-padding-buat-left|right-view-uitextfield/" data-id="ck0hva7wp0008kvw4n77zuuea" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/19/2017-03-19-background-color-untuk-uitabbar/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Background Color Untuk UITabBar
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/17/2017-03-17-membuat-subtitle-pada-navigation-item/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Membuat Subtitle Pada Navigation Item</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/general/">general</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOt/">iOt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/general/" style="font-size: 10px;">general</a> <a href="/tags/iOt/" style="font-size: 10px;">iOt</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/15/Big Button/">Big Button</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/10/Welcome-Back/">Welcome Back</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/10/2017-09-10-menginstall-app-ios-dari-file-ipa/">Menginstall App iOS dari file IPA</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/01/2017-05-01-Membuat-Next-Button-Keyboard-Bekerja/">Membuat Next Button Keyboard Bekerja</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/10/2017-04-10-mengatasi-keyboard-yang-menutupi-uitextfield/">Mengatasi Keyboard Yang Menutupi UITextField</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Fitsyu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
