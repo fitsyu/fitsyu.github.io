@@ -93,8 +93,8 @@ theme_config:
   enabled: true
   width: 50
   height: 50
-  url: /images/logo.png
-  gravatar: false
+  url: /source/images/logo.png
+  gravatar: true
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
