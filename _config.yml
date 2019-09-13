@@ -76,6 +76,17 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: cactus
 
+nav:
+  Home: /
+  About: /about/
+  Writing: /archives/
+  Projects: https://github.com/fitsyu?tab=repositories
+
+social_links:
+  github: github.com/fitsyu
+  twitter: twitter.com/fitsyu
+  NAME: your-NAME-url
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
