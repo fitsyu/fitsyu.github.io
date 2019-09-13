@@ -83,9 +83,11 @@ nav:
   Projects: https://github.com/fitsyu?tab=repositories
 
 social_links:
-  github: github.com/fitsyu
-  twitter: twitter.com/fitsyu
-  NAME: your-NAME-url
+  github: https://github.com/fitsyu
+  twitter: /
+  facebook: /
+  linkedin: https://www.linkedin.com/in/fitsyu2/
+  mail: mailto:fitsyu2@gmail.com
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
