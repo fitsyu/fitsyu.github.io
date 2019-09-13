@@ -75,19 +75,26 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: cactus
+theme_config:
+ nav:
+  home: /
+  about: /about/
+  writing: /archives/
+  projects: https://github.com/fitsyu?tab=repositories
 
-nav:
-  Home: /
-  About: /about/
-  Writing: /archives/
-  Projects: https://github.com/fitsyu?tab=repositories
-
-social_links:
+ social_links:
   github: https://github.com/fitsyu
   twitter: /
   facebook: /
   linkedin: https://www.linkedin.com/in/fitsyu2/
   mail: mailto:fitsyu2@gmail.com
+
+ logo:
+  enabled: true
+  width: 50
+  height: 50
+  url: /images/logo.png
+  gravatar: false
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
