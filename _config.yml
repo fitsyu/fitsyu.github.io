@@ -77,10 +77,10 @@ pagination_dir: page
 theme: cactus
 theme_config:
  nav:
-  home: /
-  about: /about/
-  writing: /archives/
-  projects: https://github.com/fitsyu?tab=repositories
+  Home: /
+  About: /about/
+  Writing: /archives/
+  Projects: https://github.com/fitsyu?tab=repositories
 
  social_links:
   github: https://github.com/fitsyu
