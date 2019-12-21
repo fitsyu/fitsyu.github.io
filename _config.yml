@@ -77,16 +77,16 @@ pagination_dir: page
 theme: cactus
 theme_config:
  nav:
-  Home: /
-  About: /about/
-  Writing: /archives/
   Projects: https://github.com/fitsyu?tab=repositories
+  Writing: /archives/
+  CV: /cv/
+  About: /about/
 
  social_links:
-  github: https://github.com/fitsyu
-  twitter: /
-  facebook: /
   linkedin: https://www.linkedin.com/in/fitsyu2/
+  github: https://github.com/fitsyu
+  stack-overflow: https://stackoverflow.com/users/7353852/fitsyu
+  twitter: https://twitter.com/fitsyu
   mail: mailto:fitsyu2@gmail.com
 
  logo:
